@@ -20,58 +20,60 @@ All changes are made directly on GitHub — no software to install. Edit a file,
 
 ## Adding a Team Member
 
-Edit **`_pages/our-team.md`** and copy/paste this block inside the `<div class="team-grid">` section:
+Edit **`_data/team.yml`** and add a new entry at the bottom. Copy this template and fill in the details:
 
-```html
-<div class="team-card">
-  <img src="{{ '/assets/images/team/LASTNAME.webp' | relative_url }}" alt="FULL NAME" class="team-photo">
-  <h3 class="team-name">FULL NAME</h3>
-  <p class="team-title">TITLE (e.g., Research Assistant)</p>
-  <p class="team-bio">BIO TEXT GOES HERE.</p>
-</div>
+```yaml
+- name: "First Last"
+  title: "Research Assistant"
+  photo: "lastname.webp"
+  group: "research_assistants"
+  bio: "Write the bio here. Keep it all on one line."
 ```
 
-Replace `LASTNAME`, `FULL NAME`, `TITLE`, and `BIO TEXT` with the new member's info.
+For `group`, use `"leadership"` or `"research_assistants"`.
 
 Then upload their photo:
 1. Go to **`assets/images/team/`**
 2. Click **Add file > Upload files**
-3. Name it `lastname.webp` (or `.jpg`/`.png`) — must match the filename in the code above
+3. Name the file to match the `photo` field above (e.g., `lastname.webp`)
 
-To **remove** a team member, delete their `<div class="team-card">...</div>` block.
+To **remove** a team member, delete their block (from the `-` to the line before the next `-`).
 
 ---
 
 ## Adding a Publication
 
-Edit **`_pages/publications.md`** and add a new line at the **top** of the list (right after the `<div>` tag):
+Edit **`_data/publications.yml`** and add a new entry at the **top** of the file:
 
-```markdown
-- Author, A., Author, B. (2026). Title of the paper. *Journal Name*, volume(issue), pages. [DOI](https://doi.org/your-doi-here)
+```yaml
+- citation: "Author, A., Author, B. (2026). Title of paper. Journal Name, volume(issue), pages."
+  doi: "https://doi.org/your-doi-here"
 ```
 
-Wrap the journal name in `*asterisks*` to italicize it. The `[DOI](url)` part creates a clickable link.
+That's it — the citation text and the DOI link. The site handles the formatting.
 
 ---
 
 ## Adding a Resource
 
-Edit **`_pages/resources.md`** and add this block inside the `<div class="resources-list">`:
+Edit **`_data/resources.yml`** and add a new entry at the bottom:
 
-```html
-<div class="resource-item">
-<h3><a href="https://example.com" target="_blank">Resource Name</a></h3>
-<p>Description of the resource goes here.</p>
-</div>
+```yaml
+- name: "Resource Name"
+  url: "https://example.com"
+  description: "What this resource offers."
 ```
 
-If the resource has a phone number, add it as a separate line:
+If the resource has a phone number, add a `phone` line:
 
-```html
-<p><strong>Helpline: 800-123-4567</strong></p>
+```yaml
+- name: "Resource Name"
+  url: "https://example.com"
+  description: "What this resource offers."
+  phone: "Helpline: 800-123-4567"
 ```
 
-If there's no website link, just use `<h3>Resource Name</h3>` without the `<a>` tag.
+If there's no website, leave `url` empty: `url: ""`
 
 ---
 
@@ -100,18 +102,17 @@ If there's no website link, just use `<h3>Resource Name</h3>` without the `<a>` 
 
 ## Editing Page Content
 
-All pages are in the **`_pages/`** folder:
+Pages like About, Participate, and Contact are in the **`_pages/`** folder:
 
 | File | Page |
 |---|---|
 | `about.md` | About |
 | `participate.md` | Participate |
-| `our-team.md` | Our Team |
-| `resources.md` | Resources |
-| `publications.md` | Publications |
 | `contact-us.md` | Contact |
 
 The homepage is `index.html` in the root folder.
+
+Team, Publications, and Resources are managed through the data files described above — you don't need to touch the page templates.
 
 Pages use **Markdown** formatting:
 
@@ -151,6 +152,20 @@ Content goes here.
 ```
 
 4. To add it to the navigation bar, edit `_includes/nav.html` and add a new `<li>` entry following the pattern of the existing links
+
+---
+
+## Important: YAML Formatting Tips
+
+The data files (`_data/*.yml`) are sensitive to formatting. Follow these rules:
+
+- Each entry starts with `- ` (dash + space)
+- Fields are indented with **two spaces** (not tabs)
+- Wrap all values in `"double quotes"`
+- Keep bios on **one line** — no line breaks inside the quotes
+- Don't change the field names (`name:`, `title:`, `bio:`, etc.)
+
+If the site doesn't build after your edit, you probably have a formatting issue. Check for missing quotes or wrong indentation.
 
 ---
 
