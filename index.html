@@ -1,0 +1,79 @@
+---
+layout: default
+title: Home
+---
+
+<section class="hero">
+  <div class="container">
+    <img src="{{ '/assets/images/hero-logo.webp' | relative_url }}" alt="FFCL Logo" class="hero-logo">
+    <h1>Falzarano Family Caregiving Lab</h1>
+    <p class="subtitle">Research for caregivers, by caregivers.</p>
+    <a href="{{ '/participate' | relative_url }}" class="btn btn-red">Get Involved</a>
+  </div>
+</section>
+
+<div class="photo-carousel">
+  <div class="carousel-track">
+    {% for i in (1..8) %}
+    <img src="{{ '/assets/images/photos/photo' | append: i | append: '.jpg' | relative_url }}" alt="Lab photo {{ i }}">
+    {% endfor %}
+  </div>
+</div>
+
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">Projects</h2>
+    <div class="project-cards">
+      <div class="project-card">
+        <h3>CarePair</h3>
+        <span class="status recruiting">Recruiting</span>
+        <p>CarePair, funded by the National Institute on Aging, is a behavioral intervention designed to support family caregivers of individuals living with dementia through a mobile self-assessment and referral platform. The CarePair app connects caregivers to tailored services and support resources based on their individual needs. In this phase of the study, researchers are pilot-testing the app to evaluate its feasibility and acceptability and explore its potential to improve caregiver well-being. Participants will use study-provided caregiving resources through the app over a six-week period and complete two in-depth surveys at the beginning and end of the study, along with two brief surveys during weeks two and four. Participants who complete all study activities will receive $50.</p>
+      </div>
+      <div class="project-card">
+        <h3>Living Memory Home for Dementia Care Pairs (LMH-4-DCP)</h3>
+        <span class="status closed">Closed to Recruitment</span>
+        <p>LMH-4-DCP, funded by the National Institute on Aging, is a web-based, reminiscence-focused intervention designed for persons living with early to moderate stages of dementia and their family caregivers. The goal of this study is to evaluate the feasibility and acceptability of the LMH-4-DCP platform and to explore its preliminary effects on outcomes such as pre-loss grief and care pair relationship quality. Participants will be asked to engage with the LMH-4-DCP platform three times per week over a two-week period. Study assessments will be conducted through surveys at baseline and again at the two-week follow-up to evaluate the platform's impact, and participants may also be invited to complete an optional interview after the intervention period.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr>
+
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">Publications</h2>
+    <p class="section-text">Click the button below to find a list of citations to published work that have come from our lab members.</p>
+    <br>
+    <a href="{{ '/publications' | relative_url }}" class="btn btn-outline">View Publications</a>
+  </div>
+</section>
+
+<hr>
+
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">Meet Our Partners</h2>
+    <p class="section-text">We work with individuals, developers, and organizations who share our commitment to supporting caregivers of people living with Alzheimer's disease and related dementias. Partnerships can include opportunities for collaborative research on technologies, projects, programs, and other supports that benefit caregivers and co-developing new initiatives with scientists, practitioners, and industry leaders across the research-to-practice spectrum.</p>
+  </div>
+</section>
+
+<div class="partners-section">
+  <div class="partners-track">
+    {% for i in (1..7) %}
+    {% if i == 4 %}
+    <img src="{{ '/assets/images/partners/partner' | append: i | append: '.webp' | relative_url }}" alt="Partner {{ i }}">
+    {% else %}
+    <img src="{{ '/assets/images/partners/partner' | append: i | append: '.png' | relative_url }}" alt="Partner {{ i }}">
+    {% endif %}
+    {% endfor %}
+  </div>
+</div>
+
+<section class="section">
+  <div class="container">
+    <p class="section-text">If you are interested in exploring potential partnerships or collaborations with the FFCL, please click below!</p>
+    <br>
+    <a href="{{ '/contact-us' | relative_url }}" class="btn btn-outline">Partner With Us</a>
+  </div>
+</section>

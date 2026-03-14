@@ -1,0 +1,24 @@
+title: Falzarano Family Caregiving Lab
+description: Research for caregivers, by caregivers.
+url: ""
+baseurl: ""
+
+permalink: pretty
+
+collections_dir: .
+include:
+  - _pages
+
+defaults:
+  - scope:
+      path: "_pages"
+      type: "pages"
+    values:
+      layout: "default"
+
+plugins:
+  - jekyll-seo-tag
+
+sass:
+  sass_dir: _sass
+  style: compressed
