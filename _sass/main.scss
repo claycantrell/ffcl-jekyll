@@ -501,13 +501,29 @@ hr {
       display: none;
       width: 100%;
       flex-direction: column;
-      gap: 12px;
-      padding: 12px 0;
-      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      gap: 0;
+      padding: 0;
+      background: $black;
+      position: absolute;
+      top: 56px;
+      left: 0;
+      right: 0;
+      z-index: 200;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
       &.open { display: flex; }
+
+      li {
+        border-top: 1px solid rgba(255, 255, 255, 0.06);
+      }
+
+      a {
+        display: block;
+        padding: 14px 20px;
+      }
     }
     .nav-toggle { display: block; }
-    .nav-inner { flex-wrap: wrap; }
+    .nav-inner { flex-wrap: wrap; position: relative; }
   }
 
   .hero {
